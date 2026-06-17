@@ -1,0 +1,354 @@
+Delivered-To: rhuanpereira436@gmail.com
+Received: by 2002:a05:6638:4a18:b0:5e2:409f:9856 with SMTP id cz24csp2821208jab;
+        Wed, 17 Jun 2026 11:38:25 -0700 (PDT)
+X-Received: by 2002:a05:6214:468f:b0:8ce:d557:74d2 with SMTP id 6a1803df08f44-8db5d0db961mr95375456d6.30.1781721505241;
+        Wed, 17 Jun 2026 11:38:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781721505; cv=none;
+        d=google.com; s=arc-20240605;
+        b=aHBrCYvZjJpwrCXrnrHQadu4pEIiJBtDfYXGaduh707Di2rEnyFQE9C8LIN2mlrB/X
+         AkLFdZPv0RLHOmM10dTNvuxQtzh0vx+EtiaJcjtV0YHzkW1hCI+oeakpvs1aLRrsqNZ3
+         j+UzjAhIYNNsL/1zKpAS+IXJBeA+8XPYAW7RLOS2oPQlejK/wwqb4H70RWisx2KweANZ
+         53TNlojfKGZ0c0MJl06XFPtC/krNvaKe/vGySbn5FspjKBPBvHrpEfPZvnTRGlhgollM
+         gfbR/6i5Rhd1c1M4ZZhBxc6G2CuC4BKS6lj8EZrtP9HC70ZxJubkKCIyxg280uvQAmsu
+         CPNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:reply-to:mime-version:date:message-id:subject:from
+         :dkim-signature:dkim-signature;
+        bh=Uh8YTksm4JFtJK4fXmiNusGi10zm2penONF17DzUupU=;
+        fh=0xxrMDmSevu9IO6GS/7FLqrQ3qhneQWtpcc43S1DK8A=;
+        b=MiEHrM5KdMANZtqdlyM3Hsju6G5vowTUHzhkR1zIhW7PFImbkFtXOun/RlZknRXChu
+         cDAdtnxdRZ6SZ8Y+sOGgDwcCNAlZIm0NisxWMZ1Ir7hgYHfQOOXNjFHWYwz0ceNlUZcF
+         wS4pfA0P87y6a5mEpdXgsaEcvbQSUGCa+KixG0kN8OUx1XEn3yYDPNMPf8ih3NLszqVQ
+         tDwgVGy6hpMuqMClhsPEzu1/s9wVGG7HD6gObG2bJTU+1E5ydE5SY/2y6TlzjXLgDG1v
+         j86hXCaOMaWy0gF+SK+jtosnZRu7vfX4UH7SnXruKiE/35ATAJQLX1ej7/LqWd41YjM2
+         p0KA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@overleaf.com header.s=s1 header.b=ec8QUFrN;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=R7PovRKb;
+       spf=pass (google.com: domain of bounces+794683-de64-rhuanpereira436=gmail.com@email.overleaf.com designates 50.31.42.215 as permitted sender) smtp.mailfrom="bounces+794683-de64-rhuanpereira436=gmail.com@email.overleaf.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=overleaf.com
+Return-Path: <bounces+794683-de64-rhuanpereira436=gmail.com@email.overleaf.com>
+Received: from o1.email.overleaf.com (o1.email.overleaf.com. [50.31.42.215])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8d9f6cf78e6si79975986d6.596.2026.06.17.11.38.24
+        for <rhuanpereira436@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 17 Jun 2026 11:38:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+794683-de64-rhuanpereira436=gmail.com@email.overleaf.com designates 50.31.42.215 as permitted sender) client-ip=50.31.42.215;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@overleaf.com header.s=s1 header.b=ec8QUFrN;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=R7PovRKb;
+       spf=pass (google.com: domain of bounces+794683-de64-rhuanpereira436=gmail.com@email.overleaf.com designates 50.31.42.215 as permitted sender) smtp.mailfrom="bounces+794683-de64-rhuanpereira436=gmail.com@email.overleaf.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=overleaf.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=overleaf.com;
+	h=from:subject:date:mime-version:reply-to:to:content-type:cc:
+	content-type:date:feedback-id:from:subject:to;
+	s=s1; t=1781721504;
+	bh=Uh8YTksm4JFtJK4fXmiNusGi10zm2penONF17DzUupU=;
+	b=ec8QUFrNX16aRPLrp6Mzz+P5l5d+D3vSpoKRvgXgRaaXF3h2T7F4A8OmrPmPax41H3V0
+	nbpwxq0xl6rTBY27v2VpwrCjx36CwGiEwX9hqf7sxuOjqWbu5SoeR5HTzDslMCmCc8ZPJs
+	Zms3sPjkuMCroUMxq/RaSWr2U1cMI/8siPvwgMf8Y1tMsihORlxt7D5ADnlKSKRKTVB6jj
+	p/GvBKZPe8KfJL5R2LkLyPe0g/kMFpjVDqa9ZBmPYXJTXMZP4V1BHlE4mYwX+KnmNq0g4/
+	jBuSwXFXVon3eJ775qUhG8kpMRr028zvSmu2Zs32CozRcayIMSapjX8g/f75fOGw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=from:subject:date:mime-version:reply-to:to:content-type:cc:
+	content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; t=1781721504;
+	bh=Uh8YTksm4JFtJK4fXmiNusGi10zm2penONF17DzUupU=;
+	b=R7PovRKb98b/aEEtMMEzYT4/9hpJBKxmMKwnSu7ok2Y3r1fzBcJWpyu3Ru+HK9AWUy5b
+	FfrpkUxiDgeAXLXybM40TRePxi7b3dojvojy75utDUvV/Tzamsx5cWX624UHbhkol++Gls
+	BoBCwX8j4wVZr2nDiM5oc4WubaF1OukTw=
+Received: by recvd-787f75c8b5-2znmx with SMTP id recvd-787f75c8b5-2znmx-1-6A32E9A0-3B
+	2026-06-17 18:38:24.533195478 +0000 UTC m=+64435.218281489
+Received: from [127.0.0.1] (unknown)
+	by geopod-ismtpd-canary-0 (SG)
+	with ESMTP id 9OOjf2VRT9GmoMxhvrg6aQ
+	for <rhuanpereira436@gmail.com>;
+	Wed, 17 Jun 2026 18:38:24.486 +0000 (UTC)
+From: Overleaf <welcome@overleaf.com>
+Subject: "Template de =?UTF-8?B?QXByZXNlbnRhw6fDo28gVU5FQiIg4oCU?= shared by
+ shelinedantas@gmail.com
+Message-ID: <1a2c7274-a0fb-a468-50f5-fb888008929e@overleaf.com>
+Date: Wed, 17 Jun 2026 18:38:24 +0000 (UTC)
+MIME-Version: 1.0
+Reply-To: shelinedantas@gmail.com
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EnbRA5h1gF2D76dbqIbAMM58OHOOCfqgiWzN2Wdj=2Fa2hUeGKdeWAft9zW0?=
+ =?us-ascii?Q?ai=2FBCpprwmwBcrpllhh+Sh0fAsbV7D9eO6qC0Av?=
+ =?us-ascii?Q?QhhjxUPUjoJuFTlZq+XowzcvuinK9JkNyZe0tLK?=
+ =?us-ascii?Q?GhHz83hkgvpGKj9lacN9qsmEGMeZ8L=2FcXdjJqYM?=
+ =?us-ascii?Q?Dnr+RtFVyByxanjmQuC=2FB4AaAs3E7cVwkqxSkm5?=
+ =?us-ascii?Q?yCH2=2FTAyHBEjZzz4=2FmkJ7SzmDn0AfFQi=2FkqXzGf?=
+ =?us-ascii?Q?oMPb?=
+To: rhuanpereira436@gmail.com
+X-Entity-ID: u001.cthOsToDAypiMAMSnhoh1Q==
+Content-Type: multipart/alternative;
+ boundary="--_NmP-8c01623fd6bec0a1-Part_1"
+
+----_NmP-8c01623fd6bec0a1-Part_1
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+
+
+You have been invited to an Overleaf project.
+
+ Project:
+
+Template de Apresenta=E7=E3o UNEB
+
+ Shared by:
+
+shelinedantas@gmail.com
+
+View project: https://www.overleaf.com/project/69fe2896ddacfe8cdc772237/inv=
+ite/token/2ffd933baa97ef343c8257136cbed0390464cc26c9fe5506
+
+Regards,
+The Overleaf Team - https://www.overleaf.com
+----_NmP-8c01623fd6bec0a1-Part_1
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"en" xml:lang=3D"en">
+<head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <meta name=3D"x-apple-disable-message-reformatting">
+  <!--[if mso]>
+  <style type=3D"text/css">
+    body, table, td, p, a, li { font-family: Arial, Helvetica, sans-serif !=
+important; }
+  </style>
+  <![endif]-->
+  <style>
+    body { margin: 0; padding: 0; background-color: #f4f5f6; }
+    img { border: 0; display: block; outline: none; text-decoration: none; =
+}
+    .email-layout-table { border-collapse: collapse !important; }
+    a[x-apple-data-detectors] { color: inherit !important; text-decoration:=
+ none !important; }
+
+    .force-overleaf-style a,
+    .force-overleaf-style a[href] {
+      color: #1e6b41 !important;
+      text-decoration: underline !important;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      -webkit-hyphens: none;
+      hyphens: none;
+    }
+    .force-overleaf-style a:visited,
+    .force-overleaf-style a[href]:visited { color: #1e6b41; }
+    .force-overleaf-style a:hover,
+    .force-overleaf-style a[href]:hover { color: #155a30; }
+
+    @media only screen and (min-width: 621px) {
+      .email-card-inner { padding: 56px !important; }
+    }
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; max-width: 100% !important=
+; }
+      .email-outer-cell { padding: 0 10px !important; }
+      .email-header-cell { padding: 16px 0 !important; }
+    }
+  </style>
+</head>
+<body bgcolor=3D"#f4f5f6" style=3D"margin: 0; padding: 0; background-color:=
+ #f4f5f6; font-family: Arial, Helvetica, sans-serif;">
+
+  <!-- Prevent Gmail iOS font size manipulation -->
+  <div style=3D"display: none; white-space: nowrap; font: 15px courier; lin=
+e-height: 0;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  </div>
+
+  <table class=3D"email-layout-table" role=3D"presentation" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgcolor=3D"#f4f5f6" style=
+=3D"background-color: #f4f5f6; min-width: 100%;">
+    <tr>
+      <td class=3D"email-outer-cell" align=3D"center" valign=3D"top" style=
+=3D"padding: 40px 10px;">
+
+        <!--[if mso]>
+        <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"600" align=3D"center"><tr><td>
+        <![endif]-->
+        <table class=3D"email-container email-layout-table" role=3D"present=
+ation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"max-width: 600px;">
+
+          <!-- Logo header -->
+          <tr>
+            <td class=3D"email-header-cell" style=3D"padding: 0 0 24px 0;">
+             =20
+    <a href=3D"https://www.overleaf.com" style=3D"text-decoration: none; di=
+splay: inline-block; border: 0;">
+      <img
+        src=3D"https://cdn.overleaf.com/img/ol-brand/email-logo@2x.png"
+        alt=3D"Overleaf"
+        width=3D"139"
+        height=3D"40"
+        style=3D"display: block; border: 0; width: 139px; height: 40px;"
+      >
+    </a>
+ =20
+            </td>
+          </tr>
+
+          <!-- White content card -->
+          <tr>
+            <td bgcolor=3D"#ffffff" style=3D"background-color: #ffffff; bor=
+der-radius: 8px; overflow: hidden;">
+              <table class=3D"email-layout-table" role=3D"presentation" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                <tr>
+                  <td
+                    class=3D"email-card-inner"
+                    style=3D"padding: 32px 24px; font-family: Arial, Helvet=
+ica, sans-serif; font-size: 16px; line-height: 1.5; color: #1b222c;"
+                  >
+                   =20
+<h2 style=3D"margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif;=
+ font-size: 30px; font-weight: 600; color: #1b222c; line-height: 40px;">
+  Project Invite
+</h2>
+
+
+
+
+
+<p class=3D"force-overleaf-style" style=3D"margin: 0 0 16px 0;">
+  You have been invited to an Overleaf project.
+</p>
+
+<p class=3D"force-overleaf-style" style=3D"margin: 0 0 16px 0;">
+  <br /> Project:
+</p>
+
+<p class=3D"force-overleaf-style" style=3D"margin: 0 0 16px 0;">
+  <b>Template de Apresenta=E7=E3o UNEB</b>
+</p>
+
+<p class=3D"force-overleaf-style" style=3D"margin: 0 0 16px 0;">
+  <br /> Shared by:
+</p>
+
+<p class=3D"force-overleaf-style" style=3D"margin: 0 0 16px 0;">
+  <b>shelinedantas@gmail.com</b>
+</p>
+
+
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"margin: 32px 0;">
+  <tr>
+    <td bgcolor=3D"#098842" style=3D"background-color: #098842; border-radi=
+us: 9999px; padding: 6px 16px; text-align: center;">
+      <a href=3D"https://www.overleaf.com/project/69fe2896ddacfe8cdc772237/=
+invite/token/2ffd933baa97ef343c8257136cbed0390464cc26c9fe5506" style=3D"col=
+or: #ffffff; display: block; font-family: Arial, Helvetica, sans-serif; fon=
+t-size: 16px; font-weight: 600; line-height: 24px; text-align: center; text=
+-decoration: none; -webkit-hyphens: none; -ms-hyphens: none; hyphens: none;=
+">
+        View project
+      </a>
+    </td>
+  </tr>
+</table>
+
+
+
+<p style=3D"margin: 0 0 4px 0; font-size: 14px; line-height: 20px; color: #=
+495365;">
+  If the button above does not appear, please copy and paste this link into=
+ your browser's address bar:
+</p>
+<p style=3D"margin: 0; font-size: 14px; line-height: 20px; word-break: brea=
+k-all;">
+  <a href=3D"https://www.overleaf.com/project/69fe2896ddacfe8cdc772237/invi=
+te/token/2ffd933baa97ef343c8257136cbed0390464cc26c9fe5506" style=3D"color: =
+#1e6b41; text-decoration: none;">https://www.overleaf.com/project/69fe2896d=
+dacfe8cdc772237/invite/token/2ffd933baa97ef343c8257136cbed0390464cc26c9fe55=
+06</a>
+</p>
+
+
+<script type=3D"application/ld+json">
+  {"@context":"http://schema.org","@type":"EmailMessage","potentialAction":=
+{"@type":"ViewAction","target":"https://www.overleaf.com/project/69fe2896dd=
+acfe8cdc772237/invite/token/2ffd933baa97ef343c8257136cbed0390464cc26c9fe550=
+6","url":"https://www.overleaf.com/project/69fe2896ddacfe8cdc772237/invite/=
+token/2ffd933baa97ef343c8257136cbed0390464cc26c9fe5506","name":"View projec=
+t"},"description":"Join Template de Apresenta=E7=E3o UNEB at Overleaf"}
+</script>
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer spacer -->
+          <tr>
+            <td style=3D"height: 24px; font-size: 24px; line-height: 24px; =
+mso-line-height-rule: exactly;">&nbsp;</td>
+          </tr>
+
+          <!-- Footer tagline -->
+          <tr>
+            <td align=3D"center" style=3D"padding: 0 0 48px 0;">
+             =20
+    <!--[if mso]>
+    <img
+      src=3D"https://cdn.overleaf.com/img/ol-brand/email-footer-tagline@2x.=
+png"
+      alt=3D"The home of scientific and technical writing"
+      width=3D"452"
+      height=3D"25"
+      style=3D"display: block; border: 0;"
+    />
+    <![endif]-->
+    <!--[if !mso]><!-->
+    <img
+      src=3D"https://cdn.overleaf.com/img/ol-brand/email-footer-tagline@2x.=
+png"
+      alt=3D"The home of scientific and technical writing"
+      style=3D"display: block; border: 0; width: 100%; max-width: 452px; he=
+ight: auto;"
+    >
+    <!--<![endif]-->
+ =20
+            </td>
+          </tr>
+
+          <!-- Footer site info -->
+         =20
+
+         =20
+
+        </table>
+        <!--[if mso]>
+        </td></tr></table>
+        <![endif]-->
+
+      </td>
+    </tr>
+  </table>
+
+<img src=3D"http://email-link.overleaf.com/wf/open?upn=3Du001.ZBd16cNZBvlrI=
+xG4QmzsdOzPcbmimGh6kOnO3hXVBa-2B2rVCSCZDsDnicLKY0aUzXf6uxD8ubyd-2FNsmjGGWVk=
+zfVHUXKAVvPrGq-2FMY6tcpdlFVDY2WFeTrvklyrzPjDVoifshGmmtrydP31cDxbNtzqGa52tm3=
+YkeOmKgd0XK9RNBduTBsiW4HZJfAPNVvcYkXmlVV1v6jMCQC3CMMCuTWGpcuzloY5ii6BHbekqh=
+gCc-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px =
+!important;width:1px !important;border-width:0 !important;margin-top:0 !imp=
+ortant;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !=
+important;padding-top:0 !important;padding-bottom:0 !important;padding-righ=
+t:0 !important;padding-left:0 !important;"/></body>
+</html>
+----_NmP-8c01623fd6bec0a1-Part_1--
